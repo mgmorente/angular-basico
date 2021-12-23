@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let personaje of personajes">
+        <!-- Se incluye un pipe number, para formatear el dato -->
+        {{personaje.nombre}} - {{personaje.poder | number}}
+    </li>
+</ul>

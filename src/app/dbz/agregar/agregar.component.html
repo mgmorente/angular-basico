@@ -1,0 +1,15 @@
+<h3>Agregar {{ nuevo.nombre }}</h3>
+<hr>
+<!-- ngSubmit, procede de FormsModule, mismo evento que event.preventDefault -->
+<form (ngSubmit)="agregar()">
+            
+    <!-- Value entre corchetes porque vamos hacer referencia un objeto -->
+    <!-- <input type="text" placeholder="Nombre" [value]="nuevo.nombre"> -->
+    
+    <!-- [(ngModel)] los corchetes reciben propiedades, los parentesis emiten eventos. Los input necesitan la propiedad name -->
+    <!-- Para especificar el doble binding, se debe usar la sintaxis "banana in a box" -->
+    <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="nuevo.nombre">
+    <input type="number" name="poder" placeholder="Poder" [(ngModel)]="nuevo.poder">
+
+    <button type="submit">Agregar</button>
+</form>

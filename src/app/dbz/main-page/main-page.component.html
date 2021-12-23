@@ -1,0 +1,22 @@
+<p>Dragon ball Z!</p>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <h3>Personajes</h3>
+        <hr>
+
+        <!-- Enviamos el valor de personajes(var entre "") desde el cpn-padre al cpn-hijo -->
+        <app-personajes [personajes]="personajes"></app-personajes>
+    </div>
+    <div class="col">
+
+        <!-- 1.Enviamos el valor de nuevo (var entre "") desde el cpn-padre -->
+        <!-- 2.Evento personalizado generado en el cpn-hijo que emite hacia el cpn-padre y llama a la funcion agregarPersona, incluyendo el objeto con la data --> 
+        <app-agregar 
+        [nuevo]="nuevo"
+        (onNuevoPersonaje)="agregarPersonaje( $event )" 
+        ></app-agregar>
+    </div>
+</div>
+
