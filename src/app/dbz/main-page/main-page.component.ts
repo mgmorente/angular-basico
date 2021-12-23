@@ -20,7 +20,7 @@ export class MainPageComponent {
   agregarPersonaje( argumento: Personaje ) {
     this.personajes.push(argumento);
     Swal.fire(
-      'Perfecto!!',
+      'Perfecto!!!',
       'El personaje ' + argumento.nombre + ' fue grabado correctamente',
       'success'
     )
