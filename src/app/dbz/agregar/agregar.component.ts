@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interfaz';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-agregar',
@@ -15,7 +16,9 @@ export class AgregarComponent {
 
   // Usamos el decorador @Output porque el cpn-hijo necesita emitir al cpn-padre
   // Usamos el EventEmitter porque necesitamos emitir el evento
-  @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
+  // @Output() onNuevoPersonaje: EventEmitter<Personaje> = new EventEmitter();
+
+  constructor (private dbzService: DbzService) {}
 
   // Funcion agregar personaje
   agregar() {
@@ -24,7 +27,9 @@ export class AgregarComponent {
     if (this.nuevo.nombre.trim().length === 0) { return; }
     
     // Evento personalizado que devuelve el objeto (con datos) al cpn-padre
-    this.onNuevoPersonaje.emit( this.nuevo );
+    // this.onNuevoPersonaje.emit( this.nuevo );
+
+    this.dbzService.agregarPersonaje (this.nuevo);
     
     // Inicializar el objeto nuevo
     this.nuevo = {
